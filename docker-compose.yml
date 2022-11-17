@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  caddy:
+    image: caddy:2
+    network_mode: host
+    volumes:
+      - /root/caddy-data:/data
+      - /root/tims-web-services/caddy-config:/config
+      - /home/might/web:/site
