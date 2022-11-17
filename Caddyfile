@@ -34,6 +34,18 @@ subuser.org {
 	file_server
 }
 
+ss.hobbs.cz {
+        reverse_proxy hobbs:6080
+}
+
+
+*.ss.hobbs.cz {
+        tls {
+            on_demand
+        }
+        reverse_proxy hobbs:6080
+}
+
 
 # Refer to the Caddy docs for more information:
 # https://caddyserver.com/docs/caddyfilek
