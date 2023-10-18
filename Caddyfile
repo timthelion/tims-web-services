@@ -18,6 +18,11 @@ thobbs.cz {
 	file_server
 }
 
+fcsdg.org {
+	root * /srv/fcsdg.org/
+	file_server
+}
+
 
 timothy.hobbs.cz {
 	root * /srv
@@ -45,6 +50,13 @@ ss.hobbs.cz {
         }
         reverse_proxy hobbs:6080
 }
+
+recordme.hobbs.cz {
+    log {
+        output stdout
+    }
+}
+
 
 
 # Refer to the Caddy docs for more information:
