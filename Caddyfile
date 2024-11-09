@@ -24,6 +24,11 @@ fcsdg.org {
 }
 
 
+stopcrueltystopslaughter.hobbs.cz {
+	root * /srv/stopcrueltystopslaughter/
+	file_server
+}
+
 timothy.hobbs.cz {
 	root * /srv
 	file_server
