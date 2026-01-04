@@ -9,9 +9,10 @@
 # domain name.
 
 hobbs.cz {
-	root * /srv
-	file_server
+   root * /srv
+   file_server
 }
+
 
 thobbs.cz {
 	root * /srv
@@ -62,7 +63,20 @@ recordme.hobbs.cz {
     }
 }
 
+veganvilla.cz {
+	root * /srv/veganvilla.cz/
+	file_server
+}
 
+collectiveliberationcircle.cz {
+       root * /srv/collectiveliberationcircle.cz/
+       file_server
+}
+
+stenolex.com {
+       root * /srv/stenolex.com/
+       file_server
+}
 
 # Refer to the Caddy docs for more information:
 # https://caddyserver.com/docs/caddyfilek
