@@ -1,0 +1,6 @@
+# Secrets - never commit these
+postfix-accounts.cf
+*.private
+*.key
+passwd
+passwd.client

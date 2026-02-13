@@ -1,3 +1,0 @@
-# PLACEHOLDER - Copy your existing DKIM private key from /etc/exim4/dkim.private.key
-# Run on the server:
-#   cat /etc/exim4/dkim.private.key > /root/tims-web-services/mail-config/config/opendkim/hobbs.cz/29022016.private

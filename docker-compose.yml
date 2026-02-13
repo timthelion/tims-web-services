@@ -30,8 +30,10 @@ services:
       - /root/mail-data:/var/mail
       - /root/mail-state:/var/mail-state
       - /root/mail-logs:/var/log/mail
-      # Configuration
+      # Configuration (non-secret)
       - /root/tims-web-services/mail-config/config/:/tmp/docker-mailserver/
+      # Secrets (outside git repo)
+      - /root/mail-secrets/postfix-accounts.cf:/tmp/docker-mailserver/postfix-accounts.cf:ro
       # Let's Encrypt certificates (shared with system)
       - /etc/letsencrypt:/etc/letsencrypt:ro
       # Timezone
