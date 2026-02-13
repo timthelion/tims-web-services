@@ -1,4 +1,4 @@
-version: "3"
+version: "3.8"
 
 services:
   caddy:
@@ -10,3 +10,33 @@ services:
       - /root/tims-web-services/caddy-config:/config
       - /home/might/hobbs.cz:/srv
       - /root/tims-web-services/Caddyfile:/etc/caddy/Caddyfile
+
+  mailserver:
+    image: ghcr.io/docker-mailserver/docker-mailserver:latest
+    container_name: mailserver
+    hostname: mail.hobbs.cz
+    domainname: hobbs.cz
+    restart: unless-stopped
+    stop_grace_period: 1m
+    # Use host network for mail ports (25, 143, 465, 587, 993)
+    # This avoids NAT issues with mail delivery
+    network_mode: host
+    cap_add:
+      - NET_ADMIN  # For fail2ban
+    env_file:
+      - /root/tims-web-services/mail-config/mailserver.env
+    volumes:
+      # Mail data - persistent storage for mailboxes
+      - /root/mail-data:/var/mail
+      - /root/mail-state:/var/mail-state
+      - /root/mail-logs:/var/log/mail
+      # Configuration
+      - /root/tims-web-services/mail-config/config/:/tmp/docker-mailserver/
+      # Let's Encrypt certificates (shared with system)
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+      # Timezone
+      - /etc/localtime:/etc/localtime:ro
+    healthcheck:
+      test: ["CMD", "ss", "--listening", "--tcp", "|", "grep", "-q", "smtp"]
+      timeout: 3s
+      retries: 0

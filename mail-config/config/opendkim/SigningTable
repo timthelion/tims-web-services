@@ -1,0 +1,3 @@
+# DKIM Signing Table
+# Format: pattern key-name
+*@hobbs.cz 29022016._domainkey.hobbs.cz
