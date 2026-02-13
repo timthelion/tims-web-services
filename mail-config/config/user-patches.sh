@@ -9,3 +9,8 @@ postconf -e "mydomain = hobbs.cz"
 # Ensure proper TLS configuration
 postconf -e "smtpd_tls_cert_file = /etc/letsencrypt/live/imap.hobbs.cz/fullchain.pem"
 postconf -e "smtpd_tls_key_file = /etc/letsencrypt/live/imap.hobbs.cz/privkey.pem"
+
+# Shorter milter timeouts to prevent hanging if opendkim is slow
+postconf -e "milter_connect_timeout = 5s"
+postconf -e "milter_command_timeout = 5s"
+postconf -e "milter_content_timeout = 30s"
