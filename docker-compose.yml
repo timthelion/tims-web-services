@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   caddy:
     image: caddy:2
@@ -15,8 +13,9 @@ services:
     image: ghcr.io/docker-mailserver/docker-mailserver:latest
     container_name: mailserver
     hostname: mail.hobbs.cz
-    domainname: hobbs.cz
     restart: unless-stopped
+    environment:
+      - DOMAINNAME=hobbs.cz
     stop_grace_period: 1m
     # Use host network for mail ports (25, 143, 465, 587, 993)
     # This avoids NAT issues with mail delivery
