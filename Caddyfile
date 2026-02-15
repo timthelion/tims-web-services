@@ -10,8 +10,7 @@
 
 {
 	on_demand_tls {
-		interval 2m
-		burst 5
+		# Empty block enables on-demand TLS with default rate limiting
 	}
 }
 
