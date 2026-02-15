@@ -8,6 +8,13 @@
 # this machine's public IP, then replace ":80" below with your
 # domain name.
 
+{
+	on_demand_tls {
+		interval 2m
+		burst 5
+	}
+}
+
 hobbs.cz {
    root * /srv
    file_server
