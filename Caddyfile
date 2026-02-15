@@ -8,12 +8,6 @@
 # this machine's public IP, then replace ":80" below with your
 # domain name.
 
-{
-	on_demand_tls {
-		# Empty block enables on-demand TLS with default rate limiting
-	}
-}
-
 hobbs.cz {
    root * /srv
    file_server
@@ -52,14 +46,6 @@ subuser.org {
 }
 
 ss.hobbs.cz {
-        reverse_proxy hobbs:6080
-}
-
-
-*.ss.hobbs.cz {
-        tls {
-            on_demand
-        }
         reverse_proxy hobbs:6080
 }
 
